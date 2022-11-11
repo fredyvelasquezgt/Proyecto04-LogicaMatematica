@@ -1,5 +1,11 @@
 % diff(x^(x*log(cos(x))), x, N).
 % N = x^(exp(log(1/x))-1)*(exp(log(1/x))+ - (1)/(x*x)/(1/x)*exp(log(1/x))*x*log(x))*cos(x^exp(log(1/x)))
+% diff((x^5+x^3)/(x^2+1), x, Y).
+% diff(log(x/(x+1)), x, Y).
+% diff(sin(exp(3*x)), x, Y).
+% diff(log(sin((x+1)/x)), x, Y).
+
+
 
 % diff(expr, var, div)
 
@@ -73,12 +79,10 @@ opt_div(X/Y, X, Y).
 % constant
 diff(E, _, 0) :- number(E).
 
-% the same variable
 diff(E, V, 0) :- 
 	atom(E),
 	E \== V.
 	
-% other variables
 diff(E, V, 1) :- 
 	atom(E),
 	E == V.
@@ -89,7 +93,7 @@ diff(E1 + E2, V, W) :-
 	diff(E2, V, Ed2),
 	opt_sum(W, Ed1, Ed2).
 
-% subtraction
+% resta
 diff(E1 - E2, V, W) :- 
 	diff(E1, V, Ed1),
 	diff(E2, V, Ed2),
@@ -132,10 +136,6 @@ diff(tan(E), V, F) :-
 	opt_mul(C, 2, cos(B)),
 	opt_sum(D, C, 1),
 	opt_div(F, A, D).
-
-diff(arctan(E), V, F) :-
-    diff(E,V, Ed),
-    
 	
 diff(exp(E), V, F) :-
     diff(E,V, Ed),
@@ -156,21 +156,3 @@ diff(F^G, V, FF) :-
 	opt_sum(EE, BB, DD),
 	opt_mul(FF, F^(AA), EE).
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
-
