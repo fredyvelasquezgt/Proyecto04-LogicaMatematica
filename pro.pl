@@ -14,6 +14,7 @@
 opt_sum(X, X, 0).
 opt_sum(Y, 0, Y).
 
+
 opt_sum(W, X, Y) :-
 	number(X),
 	number(Y),
