@@ -3,6 +3,7 @@
 
 % N = x^(exp(log(1/x))-1)*(exp(log(1/x))+ - (1)/(x*x)/(1/x)*exp(log(1/x))*x*log(x))*cos(x^exp(log(1/x)))
 % diff((x^5+x^3)/(x^2+1), x, Y).
+
 % diff(log(x/(x+1)), x, Y).
 % diff(sin(exp(3*x)), x, Y).
 % diff(log(sin((x+1)/x)), x, Y).
